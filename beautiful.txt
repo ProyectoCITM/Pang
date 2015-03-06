@@ -18,4 +18,10 @@ Beautiful ee QUE COÑO ES ESTO
 Beautiful ee
 
 kawaii
+<<<<<<< HEAD
 
+=======
+>>>>>>> 49033fea4ac29cdc894a2e4f714ad1fbccc642d2
+
+auronplay ddapadpa`auronplay
+>>>>>>> 49811b73ec46aef98243b31ef1f1b030ce32acd6
