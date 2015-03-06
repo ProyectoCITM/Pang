@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 Beautiful ee
 os la follabais totdos..yo tambien
 
@@ -8,3 +9,8 @@ GIMME THAAAAAAAT
 Beautiful ee QUE COÑO ES ESTO
 
 >>>>>>> origin/master
+=======
+Beautiful ee
+
+kawaii
+>>>>>>> 49033fea4ac29cdc894a2e4f714ad1fbccc642d2
