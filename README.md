@@ -1,5 +1,5 @@
 # Pang
 
-GG EASY;
+kawaiii desu neee!!
 
 Això és una prova mhmhmh.
