@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 Beautiful ee
 os la follabais totdos..yo tambien
 
 
 GIMME THAAAAAAAT
+=======
+Beautiful ee QUE COÑO ES ESTO
+
+>>>>>>> origin/master
