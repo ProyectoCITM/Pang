@@ -36,6 +36,10 @@ update_status ModuleInput::Update()
 	keyboard = SDL_GetKeyboardState(NULL);
 
 	// TODO: que al apretar ESCAPE la aplicacio acabi
+	if (keyboard[SDL_SCANCODE_ESCAPE])
+	{
+		return UPDATE_STOP;
+	}
 
 	return UPDATE_CONTINUE;
 }
