@@ -1,7 +1,9 @@
 #pragma once
 #include "Module.h"
 #include "Globals.h"
+#include "List.h"
 #include "SDL\include\SDL.h"
+
 
 class ModuleTextures : public Module
 {
