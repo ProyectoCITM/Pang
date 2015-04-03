@@ -4,30 +4,19 @@
 #include "Globals.h"
 #include "p2Point.h"
 
-class ModulePlayer : public Module
+class ModulePlayer2 : public Module
 {
 public:
-	ModulePlayer(Application* app);
-	~ModulePlayer();
+	ModulePlayer2(Application* app);
+	~ModulePlayer2();
 
 	bool Start();
 	update_status Update();
 
 public:
 
-	Animation* last_animation = NULL;
-	SDL_Texture* graphics;
-	Animation idleR;
-	Animation idleL;
-	Animation right;
-	Animation left;
-	Animation stairs;
-	Animation shootR;
-	Animation shootL;
-	p2Point<int> position;
-
-	//Player 2
 	Animation* last_animation2 = NULL;
+	SDL_Texture* graphics2;
 	Animation idleR2;
 	Animation idleL2;
 	Animation right2;
