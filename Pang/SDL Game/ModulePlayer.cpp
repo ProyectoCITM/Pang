@@ -272,7 +272,6 @@ update_status ModulePlayer::Update()
 		}
 	}
 
-
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
 

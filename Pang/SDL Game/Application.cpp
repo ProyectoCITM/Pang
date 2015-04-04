@@ -9,6 +9,9 @@ Application::Application()
 	input = new ModuleInput(this);
 	background = new ModuleBackground(this);
 	player = new ModulePlayer(this);
+	//player2 = new ModulePlayer(this);
+	balloons = new ModuleBalloons(this);
+	fruit = new ModuleFruit(this);
 
 	// The order of calls is very important!
 	// Modules will Init() Start() and Update in this order
@@ -19,6 +22,9 @@ Application::Application()
 	AddModule(input);
 	AddModule(background);
 	AddModule(player);
+	//AddModule(player2);
+	AddModule(balloons);
+	AddModule(fruit);
 }
 
 Application::~Application()
@@ -29,6 +35,9 @@ Application::~Application()
 	delete input;
 	delete background;
 	delete player;
+	//delete player2;
+	delete balloons;
+	delete fruit;
 }
 
 bool Application::Init()

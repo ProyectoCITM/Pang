@@ -26,7 +26,7 @@ public:
 	Animation shootL;
 	p2Point<int> position;
 
-	//Player 2
+	// Player 2
 	Animation* last_animation2 = NULL;
 	Animation idleR2;
 	Animation idleL2;
