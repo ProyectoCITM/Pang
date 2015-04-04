@@ -6,6 +6,9 @@ ModuleFruit::ModuleFruit(Application* app) : Module(app)
 {
 	graphics = NULL;
 
+	position_fruit.x = 182;
+	position_fruit.y = 30;
+
 	// Cherry
 	cherry.x = 0;
 	cherry.y = 0;
@@ -35,8 +38,14 @@ bool ModuleFruit::Start()
 // Update: draw Fruits
 update_status ModuleFruit::Update()
 {
-	// Draw everything --------------------------------------
-	App->renderer->Blit(graphics, 192, 30, &cherry, NULL); // cherry
-	App->renderer->Blit(graphics, 192, 60, &cake, NULL); // cake
+	//SDL_Rect current_rect = NULL;
+
+	if (position_fruit.y < 188)
+	{
+		position_fruit.y += 1;
+	}
+
+	App->renderer->Blit(graphics, position_fruit.x, position_fruit.y, &cherry, NULL);
+
 	return UPDATE_CONTINUE;
 }

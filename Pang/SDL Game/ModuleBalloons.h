@@ -22,4 +22,6 @@ public:
 	Animation red_explosion_end;
 	Animation idle_ball;
 	p2Point<int> position_ball;
+	float alpha = 270;
+	int speed = 1;
 };
