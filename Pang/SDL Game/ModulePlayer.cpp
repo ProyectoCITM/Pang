@@ -159,32 +159,16 @@ update_status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_W] == 1)
+	if (App->input->keyboard[SDL_SCANCODE_W] == 1 && position.y > 40)
 	{
 		current_animation = &stairs;
-		// limits up
-		if (position.y <= 40)
-		{
-			position.y = 40;
-		}
-		else
-		{
-			position.y -= speed;
-		}
+		position.y -= speed;
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_S] == 1)
+	if (App->input->keyboard[SDL_SCANCODE_S] == 1 && position.y < 200)
 	{
 		current_animation = &stairs;
-		// limits down
-		if (position.y >= 200)
-		{
-			position.y = 200;
-		}
-		else
-		{
-			position.y += speed;
-		}
+		position.y += speed;
 	}
 
 
@@ -244,32 +228,16 @@ update_status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_UP] == 1)
+	if (App->input->keyboard[SDL_SCANCODE_UP] == 1 && position2.y > 40)
 	{
 		current_animation2 = &stairs2;
-		// limits up
-		if (position2.y <= 40)
-		{
-			position2.y = 40;
-		}
-		else
-		{
-			position2.y -= speed;
-		}
+		position2.y -= speed;
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_DOWN] == 1)
+	if (App->input->keyboard[SDL_SCANCODE_DOWN] == 1 && position2.y < 200)
 	{
 		current_animation2 = &stairs2;
-		// limits down
-		if (position2.y >= 200)
-		{
-			position2.y = 200;
-		}
-		else
-		{
-			position2.y += speed;
-		}
+		position2.y += speed;
 	}
 
 	// Draw everything --------------------------------------

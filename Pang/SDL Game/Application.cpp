@@ -8,10 +8,12 @@ Application::Application()
 	textures = new ModuleTextures(this);
 	input = new ModuleInput(this);
 	background = new ModuleBackground(this);
+	harpoon = new ModuleHarpoons(this);
 	player = new ModulePlayer(this);
 	//player2 = new ModulePlayer(this);
 	balloons = new ModuleBalloons(this);
 	fruit = new ModuleFruit(this);
+
 
 	// The order of calls is very important!
 	// Modules will Init() Start() and Update in this order
@@ -21,6 +23,7 @@ Application::Application()
 	AddModule(textures);
 	AddModule(input);
 	AddModule(background);
+	AddModule(harpoon);
 	AddModule(player);
 	//AddModule(player2);
 	AddModule(balloons);
@@ -34,6 +37,7 @@ Application::~Application()
 	delete textures;
 	delete input;
 	delete background;
+	delete harpoon;
 	delete player;
 	//delete player2;
 	delete balloons;

@@ -38,14 +38,15 @@ bool ModuleFruit::Start()
 // Update: draw Fruits
 update_status ModuleFruit::Update()
 {
-	//SDL_Rect current_rect = NULL;
+	SDL_Rect current_rect;
 
 	if (position_fruit.y < 188)
 	{
+		current_rect = cherry;
 		position_fruit.y += 1;
 	}
-
-	App->renderer->Blit(graphics, position_fruit.x, position_fruit.y, &cherry, NULL);
+	
+	App->renderer->Blit(graphics, position_fruit.x, position_fruit.y, &current_rect, NULL);
 
 	return UPDATE_CONTINUE;
 }

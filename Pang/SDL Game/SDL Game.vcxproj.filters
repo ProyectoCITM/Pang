@@ -63,6 +63,9 @@
     <ClInclude Include="ModuleFruit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleHarpoons.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -98,5 +101,11 @@
     <ClCompile Include="ModuleFruit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ModuleHarpoon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

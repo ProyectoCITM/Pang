@@ -76,6 +76,7 @@
     <ClInclude Include="ModuleBackground.h" />
     <ClInclude Include="ModuleBalloons.h" />
     <ClInclude Include="ModuleFruit.h" />
+    <ClInclude Include="ModuleHarpoons.h" />
     <ClInclude Include="ModuleInput.h" />
     <ClInclude Include="ModulePlayer.h" />
     <ClInclude Include="ModuleRender.h" />
@@ -91,11 +92,15 @@
     <ClCompile Include="ModuleBackground.cpp" />
     <ClCompile Include="ModuleBalloons.cpp" />
     <ClCompile Include="ModuleFruit.cpp" />
+    <ClCompile Include="ModuleHarpoon.cpp" />
     <ClCompile Include="ModuleInput.cpp" />
     <ClCompile Include="ModulePlayer.cpp" />
     <ClCompile Include="ModuleRender.cpp" />
     <ClCompile Include="ModuleTextures.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

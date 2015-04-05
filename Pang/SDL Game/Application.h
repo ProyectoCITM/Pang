@@ -12,6 +12,7 @@
 #include "ModuleBalloons.h"
 #include "ModulePlayer.h"
 #include "ModuleFruit.h"
+#include "ModuleHarpoons.h"
 
 class Application
 {
@@ -24,6 +25,7 @@ public:
 	ModuleBalloons* balloons;
 	ModulePlayer* player;
 	ModuleFruit* fruit;
+	ModuleHarpoons* harpoon;
 	//ModulePlayer* player2;
 
 private:
