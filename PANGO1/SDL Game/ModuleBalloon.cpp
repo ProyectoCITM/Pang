@@ -83,18 +83,17 @@ void ModuleBalloon::OnCollision(Collider* c1, Collider* c2)
 	//App->renderer->Blit(graphics, App->balloon->position.x, App->balloon->position.y, NULL);
 	while (tmp != NULL)
 	{
+		if (c2->type == COLLIDER_WALL_VERTICAL)
+		{
+			b->speed.x = b->speed.x * -1;
+		}
+
 		if (c2->type == COLLIDER_PLAYER_SHOT)
 		{
 			delete tmp->data;
 			active.del(tmp);
 			break;
 		}
-
-		if (c2->type == COLLIDER_WALL_VERTICAL)
-		{
-			b->speed.x = b->speed.x * -1;
-		}
-
 		tmp = tmp->next;
 	}
 

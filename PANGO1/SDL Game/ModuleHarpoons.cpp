@@ -20,7 +20,31 @@ bool ModuleHarpoons::Start()
 	shot.anim.frames.PushBack({1, 1, 17, 32});
 	shot.speed.y = 3;
 	shot.anim.speed = 0.05f;
+	/*
+	// Tail01
+	shot.tail01.x = 1;
+	shot.tail01.y = 33;
+	shot.tail01.w = 17;
+	shot.tail01.h = 4;
 
+	// Tail02
+	shot.tail02.x = 1;
+	shot.tail02.y = 37;
+	shot.tail02.w = 17;
+	shot.tail02.h = 4;
+
+	// Tail03
+	shot.tail03.x = 1;
+	shot.tail03.y = 41;
+	shot.tail03.w = 17;
+	shot.tail03.h = 4;
+
+	// Tail04
+	shot.tail04.x = 1;
+	shot.tail04.y = 45;
+	shot.tail04.w = 17;
+	shot.tail04.h = 4;
+	*/
 	return true;
 }
 
@@ -38,6 +62,8 @@ update_status ModuleHarpoons::Update()
 {
 	p2List_item<Harpoon*>* tmp = active.getFirst();
 	p2List_item<Harpoon*>* tmp_next = active.getFirst();
+
+	
 
 	while(tmp != NULL)
 	{
@@ -62,6 +88,11 @@ update_status ModuleHarpoons::Update()
 		tmp = tmp_next;
 	}
 
+	App->renderer->Blit(graphics, shot.position.x, 82, &shot.tail01, NULL);
+	App->renderer->Blit(graphics, shot.position.x, 86, &shot.tail02, NULL);
+	App->renderer->Blit(graphics, shot.position.x, 90, &shot.tail03, NULL);
+	App->renderer->Blit(graphics, shot.position.x, 94, &shot.tail04, NULL);
+	
 	return UPDATE_CONTINUE;
 }
 
@@ -88,23 +119,26 @@ void ModuleHarpoons::OnCollision(Collider* c1, Collider* c2)
 
 void ModuleHarpoons::AddHarpoon(const Harpoon& harpoon, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay)
 {
-	Harpoon* p = new Harpoon(harpoon);
-	
-	p->position.x = x;
-	p->position.y = y;
-
-	if(collider_type != COLLIDER_NONE)
+	if (active.count() < 1)
 	{
-		p->collider = App->collision->AddCollider({p->position.x, p->position.y, 0, 0}, collider_type, this);
-	}
+		Harpoon* p = new Harpoon(harpoon);
 
-	active.add(p);
+		p->position.x = x;
+		p->position.y = y;
+
+		if (collider_type != COLLIDER_NONE)
+		{
+			p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 0, 0 }, collider_type, this);
+		}
+
+		active.add(p);
+	}
 }
 
 // -------------------------------------------------------------
 // -------------------------------------------------------------
 
-Harpoon::Harpoon() : fx(0), fx_played(false), collider(NULL)
+Harpoon::Harpoon() : fx(0), counting(0), fx_played(false), collider(NULL)
 {
 	position.SetToZero();
 	speed.SetToZero();
@@ -127,11 +161,12 @@ bool Harpoon::Update()
 
 	position.y -= speed.y;
 
+	counting += speed.y;
+
 	if(collider != NULL)
 	{
-		SDL_Rect r = anim.PeekCurrentFrame();
-		collider->rect = {position.x, position.y, r.w, r.h};
+		//SDL_Rect r = anim.PeekCurrentFrame();
+		collider->rect = {position.x + 8, position.y, 1, 32 + counting};
 	}
-
 	return ret;
 }

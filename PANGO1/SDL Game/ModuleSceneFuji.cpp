@@ -32,7 +32,9 @@ bool ModuleSceneFuji::Start()
 	App->player->Enable();
 
 	App->audio->PlayMusic("Music/01a - Mt. Fuji (Arcade).wav", 0.0f);
-	App->balloon->AddBalloon(App->balloon->red_big_ball, 26, 26, COLLIDER_BALLOON);
+	
+	App->balloon->AddBalloon(App->balloon->red_big_ball, 200, 26, COLLIDER_BALLOON);
+	//App->balloon->AddBalloon(App->balloon->red_big_ball, 26, 26, COLLIDER_BALLOON);
 
 	App->collision->AddCollider({ 0, 0, 384, 8 }, COLLIDER_WALL_HORITZONTAL);
 	App->collision->AddCollider({ 0, 8, 8, 192 }, COLLIDER_WALL_VERTICAL);

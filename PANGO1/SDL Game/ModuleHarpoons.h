@@ -10,10 +10,16 @@ struct Harpoon
 {
 	Animation anim;
 	unsigned int fx;
+	int counting = 0;
 	p2Point<int> position;
 	p2Point<int> speed;
 	bool fx_played;
 	Collider* collider;
+
+	SDL_Rect tail01;
+	SDL_Rect tail02;
+	SDL_Rect tail03;
+	SDL_Rect tail04;
 
 	Harpoon();
 	Harpoon(const Harpoon& p);
