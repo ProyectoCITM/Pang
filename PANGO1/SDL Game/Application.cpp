@@ -10,10 +10,10 @@ Application::Application()
 	audio = new ModuleAudio(this, true);
 	scene_fuji = new ModuleSceneFuji(this, false);
 	player = new ModulePlayer(this, false);
-	balloon = new ModuleBalloon(this);
+	balloon = new ModuleBalloon(this, false);
 	scene_intro = new ModuleSceneIntro(this, true);
 	fade = new ModuleFadeToBlack(this);
-	harpoons = new ModuleHarpoons(this);
+	harpoons = new ModuleHarpoons(this, false);
 	collision = new ModuleCollision(this, false);
 
 	// The order of calls is very important!

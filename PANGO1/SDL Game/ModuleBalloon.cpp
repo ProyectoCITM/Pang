@@ -19,7 +19,6 @@ bool ModuleBalloon::Start()
 	//idle_ball
 	red_big_ball.anim.frames.PushBack({ 1, 1, 48, 40 });
 	red_big_ball.speed.x = 1;
-	red_big_ball.h = 140;
 
 	// red_big_explosion Barpoon
 	red_big_explosion.fx = App->audio->LoadFx("Sprites/balloons_allin.png");
@@ -38,6 +37,7 @@ bool ModuleBalloon::CleanUp()
 {
 	LOG("Unloading Balloon");
 	App->textures->Unload(graphics);
+	active.clear();
 	return true;
 }
 
@@ -78,19 +78,27 @@ void ModuleBalloon::OnCollision(Collider* c1, Collider* c2)
 {
 	// TODO 5: Fer que cada vegada que un shot collisini sorti una explosio
 	p2List_item<Balloon*>* tmp = active.getFirst();
+	Balloon* b = tmp->data;
 
-	//App->renderer->Blit(graphics, App->Balloon->position.x, App->Balloon->position.y, NULL);
-
-	if (c2->type == COLLIDER_WALL_HORITZONTAL)
+	//App->renderer->Blit(graphics, App->balloon->position.x, App->balloon->position.y, NULL);
+	while (tmp != NULL)
 	{
-		red_big_ball.speed.x = red_big_ball.speed.x * -1;
+		if (c2->type == COLLIDER_PLAYER_SHOT)
+		{
+			delete tmp->data;
+			active.del(tmp);
+			break;
+		}
+
+		if (c2->type == COLLIDER_WALL_VERTICAL)
+		{
+			b->speed.x = b->speed.x * -1;
+		}
+
+		tmp = tmp->next;
 	}
+
 	/*
-	if (c2->type == COLLIDER_WALL_VERTICAL && App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) //TODO: s'hauria de parar :S
-	{
-		b->position.x = position.x - 2;
-	}
-	*/
 	while (tmp != NULL)
 	{
 		if (tmp->data->collider == c1)
@@ -102,6 +110,7 @@ void ModuleBalloon::OnCollision(Collider* c1, Collider* c2)
 
 		tmp = tmp->next;
 	}
+	*/
 
 	if (active.getFirst() == NULL)
 		App->fade->FadeToBlack(App->scene_fuji, App->scene_intro, 0.0f);
@@ -131,9 +140,9 @@ Balloon::Balloon() : fx(0), fx_explosion(false), collider(NULL)
 	speed.SetToZero();
 }
 
-Balloon::Balloon(const Balloon& p) : anim(p.anim), position(p.position), speed(p.speed), fx_explosion(false), collider(p.collider)
+Balloon::Balloon(const Balloon& b) : anim(b.anim), position(b.position), speed(b.speed), fx_explosion(false), collider(b.collider)
 {
-	fx = p.fx;
+	fx = b.fx;
 }
 
 Balloon::~Balloon()
@@ -145,7 +154,7 @@ Balloon::~Balloon()
 bool Balloon::Update()
 {
 	bool ret = true;
-
+	
 	if (180 <= alpha <= 360)
 	{
 		if (alpha == 360)
@@ -156,9 +165,8 @@ bool Balloon::Update()
 	}
 	
 	position.x += speed.x;
-	//position.y = (165 + (abs(h * sin(alpha)) * -1));     Crec que el problema està en el valors!
+	position.y = (165 + (abs(h * sin(alpha)) * -1));
 	
-
 	if (collider != NULL)
 	{
 		SDL_Rect r = anim.PeekCurrentFrame();

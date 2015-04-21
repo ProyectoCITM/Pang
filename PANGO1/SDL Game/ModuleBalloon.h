@@ -13,7 +13,7 @@ struct Balloon
 	p2Point<int> position;
 	p2Point<int> speed;
 	float alpha = 270; // No sé ben bé quin posar
-	int h;
+	int h = 140;
 	bool fx_explosion;
 	Collider* collider;
 

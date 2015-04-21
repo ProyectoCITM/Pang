@@ -29,6 +29,7 @@ bool ModuleHarpoons::CleanUp()
 {
 	LOG("Unloading Harpoons");
 	App->textures->Unload(graphics);
+	active.clear();
 	return true;
 }
 

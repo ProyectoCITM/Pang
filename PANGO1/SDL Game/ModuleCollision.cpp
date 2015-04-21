@@ -143,6 +143,9 @@ void ModuleCollision::DrawDebug(Collider* col)
 		case COLLIDER_WALL_VERTICAL:
 		App->renderer->DrawQuad(col->rect, 0, 0, 255, alpha);
 		break;
+		case COLLIDER_WALL_HORITZONTAL:
+		App->renderer->DrawQuad(col->rect, 0, 0, 255, alpha);
+		break;
 		case COLLIDER_PLAYER:
 		App->renderer->DrawQuad(col->rect, 0, 255, 0, alpha);
 		break;

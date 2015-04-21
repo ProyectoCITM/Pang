@@ -55,6 +55,7 @@ bool ModulePlayer::Start()
 	LOG("Loading player");
 
 	graphics = App->textures->Load("Sprites/pang_player.png");
+	App->harpoons->Enable();
 
 	position.x = 152;
 	position.y = 168;
@@ -71,6 +72,7 @@ bool ModulePlayer::CleanUp()
 	LOG("Unloading player");
 
 	App->textures->Unload(graphics);
+	App->harpoons->Disable();
 
 	return true;
 }

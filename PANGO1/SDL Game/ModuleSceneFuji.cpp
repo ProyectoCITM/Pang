@@ -28,6 +28,7 @@ bool ModuleSceneFuji::Start()
 
 	App->collision->Enable(); // enable before player
 	App->audio->Enable();
+	App->balloon->Enable();
 	App->player->Enable();
 
 	App->audio->PlayMusic("Music/01a - Mt. Fuji (Arcade).wav", 0.0f);
@@ -47,6 +48,7 @@ bool ModuleSceneFuji::CleanUp()
 
 	App->textures->Unload(graphics);
 	App->player->Disable();
+	App->balloon->Disable();
 	App->collision->Disable();
 	
 	return true;
